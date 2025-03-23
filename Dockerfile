@@ -1,12 +1,8 @@
-# Utilisez l'image officielle de PostgreSQL
-FROM postgis/postgis:latest
+# Utiliser l'image officielle de GeoServer
+FROM oscarfonts/geoserver:latest
 
-# Définissez des variables d'environnement pour la base de données
-ENV POSTGRES_USER=admin
-ENV POSTGRES_PASSWORD=password
-ENV POSTGRES_DB=mydatabase
+# Exposer le port 8080 pour GeoServer
+EXPOSE 8080
 
-# Exposez le port 5432 pour la base de données PostgreSQL
-EXPOSE 5432
-
-
+# Lancer GeoServer au démarrage
+CMD ["./bin/startup.sh"]
